@@ -16,13 +16,13 @@ public class LoginController {
 
     @RequestMapping("/")
     public String login() {
-        System.out.print("111111");
+
         return "syslogin/login";
     }
 
-/*    @RequestMapping("/sysLogin")
+    @RequestMapping("/sysLogin")
     public String sysLogin() {
 
         return "index";
-    }*/
+    }
 }

@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
     <meta charset="UTF-8" />
     <title>系统登陆页面</title>
+
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />-->
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />-->
+    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/htmleaf-demo.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/logincss.css}" rel="stylesheet" type="text/css" />
 </head>
 <body>
-用户名：
-密码：
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <form class="form-horizontal">
+                <span class="heading">用户登录</span>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="用户名或电子邮件" />
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="form-group help">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="密　码" />
+                    <i class="fa fa-lock"></i>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">登录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>
