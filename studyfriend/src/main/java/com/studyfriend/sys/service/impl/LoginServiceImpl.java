@@ -15,7 +15,7 @@ public class LoginServiceImpl implements LoginService{
     @Override
     public boolean sysStaffLogin(String account, String passwd) {
         SysStaff sysStaff = sysStaffDAO.getSysStaffByAccount(account);
-        if(sysStaff.getPasswd().equals(passwd)) {
+        if(sysStaff != null && sysStaff.getPasswd().equals(passwd)) {
             return true;
         }
         return false;

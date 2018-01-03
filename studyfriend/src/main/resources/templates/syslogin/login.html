@@ -2,11 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <meta charset="UTF-8" />
-    <title>系统登陆页面</title>
+    <title>系统登陆</title>
 
-    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />-->
-    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />-->
-    <link th:href="@{/css/font-awesome.min.css}" rel="stylesheet" type="text/css" />
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
     <link th:href="@{/css/htmleaf-demo.css}" rel="stylesheet" type="text/css" />
     <link th:href="@{/css/logincss.css}" rel="stylesheet" type="text/css" />
@@ -15,15 +12,18 @@
 <div class="container">
     <div class="row">
         <div class="col-md-offset-3 col-md-6">
-            <form class="form-horizontal">
+            <form class="form-horizontal" th:action="@{/sysLogin}" method="post" th:object="${loginForm}">
                 <span class="heading">用户登录</span>
                 <div class="form-group">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="用户名或电子邮件" />
-                    <i class="fa fa-user"></i>
+                    <input type="text" class="form-control" th:field="${loginForm.username}" id="username" placeholder="用户名" aria-describedby="usernameIcon" />
+                    <i class="glyphicon glyphicon-user" id="usernameIcon"></i>
                 </div>
-                <div class="form-group help">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="密　码" />
-                    <i class="fa fa-lock"></i>
+                <div class="form-group">
+                    <input type="password" class="form-control" th:field="${loginForm.passwd}" id="passwd" placeholder="密　码" aria-describedby="passwdIcon" />
+                    <i class="glyphicon glyphicon-lock" id="passwdIcon"></i>
+                </div>
+                <div class="form-group">
+                    <span th:text="${loginForm.reMessage}" class="red-text"></span>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-default">登录</button>
