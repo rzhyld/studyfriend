@@ -15,7 +15,7 @@ public class LoginController {
 
     @RequestMapping("/")
     public String login(LoginForm loginForm) {
-        System.out.println("--------2");
+        System.out.println("--------21");
         return "syslogin/login";
     }
 
