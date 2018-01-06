@@ -15,7 +15,7 @@ public class LoginController {
 
     @RequestMapping("/")
     public String login(LoginForm loginForm) {
-        System.out.println("--------21");
+
         return "syslogin/login";
     }
 
@@ -23,14 +23,15 @@ public class LoginController {
     public String sysLogin(LoginForm loginForm) {
         System.out.println("--------1" + loginForm.getUsername() + "1--1" + loginForm.getPasswd());
         if (loginForm.getUsername().trim() == "" || loginForm.getUsername().trim().equals("")) {
-            System.out.println("--------3");
+
             loginForm.setReMessage("用户名不可以为空！");
             return login(loginForm);
         }
         if (loginService.sysStaffLogin(loginForm.getUsername(), loginForm.getPasswd())) {
             return "index";
         } else {
-            return "redirect:/";
+            loginForm.setReMessage("用户名或密码错误！");
+            return login(loginForm);
         }
 
     }

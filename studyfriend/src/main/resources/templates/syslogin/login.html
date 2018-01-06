@@ -5,8 +5,13 @@
     <title>系统登陆</title>
 
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/bootstrapValidator.min.css}" rel="stylesheet" type="text/css" />
     <link th:href="@{/css/htmleaf-demo.css}" rel="stylesheet" type="text/css" />
     <link th:href="@{/css/logincss.css}" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrapValidator.min.js}"></script>
 </head>
 <body>
 <div class="container">
@@ -33,4 +38,33 @@
     </div>
 </div>
 </body>
+<script>
+    $(function () {
+        $('form').bootstrapValidator({
+            message: 'This value is not valid',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    validators: {
+                        notEmpty: {
+                            message: '用户名不能为空！'
+                        }
+                    }
+                },
+                passwd: {
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空！'
+                        }
+                    }
+                }
+            }
+        });
+    });
+
+</script>
 </html>
